@@ -1,0 +1,12 @@
+# Build output
+# out/
+# lib/
+# *.class
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Lock file is useful to commit for reproducibility — uncomment to ignore:
+# lib/.lock.json

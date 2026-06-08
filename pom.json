@@ -1,0 +1,35 @@
+{
+  "$schema": "./pom.schema.json",
+  "_comment": "JSON project manifest — same role as pom.xml, but readable and easy to parse",
+
+  "groupId": "com.example",
+  "artifactId": "custom-spring",
+  "version": "1.0.0",
+  "name": "Custom Spring Framework",
+  "description": "Educational IoC container with JDBC — dependencies resolved from Maven Central",
+
+  "java": {
+    "version": "17",
+    "sourceDir": "src/main/java",
+    "resourcesDir": "src/main/resources",
+    "outputDir": "out/classes",
+    "mainClass": "com.example.demo.Application"
+  },
+
+  "repositories": [
+    {
+      "id": "central",
+      "url": "https://repo1.maven.org/maven2"
+    }
+  ],
+
+  "dependencies": [
+    {
+      "groupId": "com.h2database",
+      "artifactId": "h2",
+      "version": "2.2.224",
+      "scope": "compile",
+      "_purpose": "Embedded in-memory database — no install required for the demo"
+    }
+  ]
+}

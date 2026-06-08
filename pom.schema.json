@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Custom Spring pom.json",
+  "description": "Project manifest mirroring Maven coordinates — used by scripts/resolve-deps.py",
+  "type": "object",
+  "required": ["groupId", "artifactId", "version", "java", "dependencies"],
+  "properties": {
+    "groupId": { "type": "string", "description": "Maven groupId — reverse-DNS org name" },
+    "artifactId": { "type": "string", "description": "Maven artifactId — project name" },
+    "version": { "type": "string", "description": "Project version (semver)" },
+    "java": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "sourceDir": { "type": "string" },
+        "resourcesDir": { "type": "string" },
+        "outputDir": { "type": "string" },
+        "mainClass": { "type": "string" }
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["groupId", "artifactId", "version"],
+        "properties": {
+          "groupId": { "type": "string" },
+          "artifactId": { "type": "string" },
+          "version": { "type": "string" },
+          "scope": { "enum": ["compile", "test", "runtime"] }
+        }
+      }
+    }
+  }
+}
